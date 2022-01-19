@@ -18,13 +18,13 @@ const menuOptions = {
 
 let spinner;
 
+const edupage = new Edupage();
+
 if(!fs.existsSync("./edupage.json")) {
-  fs.writeFileSync("./edupage.json", JSON.stringify({ username: "", password: "" }));
-  console.log("Please fill in edupage.json with your EduPage credentials");
-  process.exit(2);
+  console.log("Please run node setup.js first");
+  process.exit(1);
 }
 
-const edupage = new Edupage();
 const credentials = require("./edupage.json");
 
 async function timetable() {
